@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import DailyForecast from './DailyForecast'
 
 
 export default function ForecastContainer() {
@@ -48,6 +49,13 @@ export default function ForecastContainer() {
     return (
         <div>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
+
+            {weatherData.map((weatherData, index) => 
+                <DailyForecast 
+                    highTemp={weatherData.list.weather.temp.max}
+                    lowTemp={weatherData.list.weather.temp.min}
+                />
+            )}
         </div>
     )
 }
