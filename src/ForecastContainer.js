@@ -44,16 +44,16 @@ export default function ForecastContainer() {
                 .then((res) => res.json())
                 .then((response) => setWeatherData(response))
          }
-     }, [lat, lng]);
+     }, [lat, lng, LAGOMORPHA]);
 
     return (
         <div>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
 
-            {weatherData.map((weatherData, index) => 
+            {weatherData.list.map((weatherData, index) => 
                 <DailyForecast 
-                    highTemp={weatherData.list.weather.temp.max}
-                    lowTemp={weatherData.list.weather.temp.min}
+                    highTemp={weatherData?.list.weather.temp.max}
+                    lowTemp={weatherData?.list.weather.temp.min}
                 />
             )}
         </div>
