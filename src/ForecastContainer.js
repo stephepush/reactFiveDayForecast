@@ -32,23 +32,25 @@ export default function ForecastContainer() {
     let weatherAPI = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
         console.log(lat)
         console.log(lng)
+
+    let weatherAPIStatic = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=40.71427&lon=-74.00597&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
      useEffect(() => {
 
 
-         if (lat && lng) {
+        
             //console.log(forecastCall)
-            return fetch(weatherAPI)
+            return fetch(weatherAPIStatic)
                 .then((res) => res.json())
                 .then((response) => setWeatherData(response))
-         }
-     }, [weatherAPI]);
+          
+     }, [weatherAPIStatic]);
     
      console.log(weatherData)
     return (
         <div>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
 
-            {weatherData.map((data, index) => 
+            {/* {weatherData?.map((data, index) => 
                <> 
                 <DailyForecast 
                     highTemp={95}
@@ -56,7 +58,7 @@ export default function ForecastContainer() {
                 />
                 <br></br>
                 </>
-            )}
+            )} */}
         </div>
     )
 }
