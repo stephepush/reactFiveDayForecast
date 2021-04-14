@@ -3,9 +3,9 @@ import React from 'react'
 export default function DailyForecast(props) {
     return (
         <div>
-            High:{props.highTemp}
+            High: {props.highTemp}
             <br></br>
-            Low:{props.lowTemp}
+            Low: {props.lowTemp}
         </div>
     )
 }

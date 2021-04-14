@@ -50,15 +50,16 @@ export default function ForecastContainer() {
         <div>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
 
-            {/* {weatherData?.map((data, index) => 
+         {weatherData?.list.map((data, index) => 
                <> 
                 <DailyForecast 
-                    highTemp={95}
-                    lowTemp={87}
+                    highTemp={data[index].temp.max}
+                    lowTemp={74}
+                    key={`forecastDay-${index}`}
                 />
                 <br></br>
                 </>
-            )} */}
+            )}
         </div>
     )
 }
