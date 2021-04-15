@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import NavBar from './NavBar'
 import DailyForecast from './DailyForecast'
 import { CardGroup, Container, Row, Col } from 'react-bootstrap'
 
@@ -47,41 +48,41 @@ export default function ForecastContainer() {
     
      console.log(weatherData)
     return (
-        <Container fluid>
-
-            <Row>
-                <Col>
-                    <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
-                </Col>
-            </Row>
+        <>
+            <Container fluid>
+                <Row>
+                    <Col></Col>
+                    <Col><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1></Col>
+                    <Col></Col>
+                </Row>
+                <Row>
+                    <Col></Col>
+                    <Col xl={8}>
+                    <CardGroup>
+                        {weatherData?.list.map((data, index) => 
+                            <> 
+                                <DailyForecast 
+                                    dateTime={data.dt}
+                                    highTemp={Math.round(data.temp.max)}
+                                    lowTemp={Math.round(data.temp.min)}
+                                    weatherGraphic={data.weather[0].icon}
+                                    graphicAltText={data.weather[0].description}
+                                    condition={data.weather[0].main}
+                                    index={`forecastDay-${index}`}
+                                />
+                                <br></br>
+                            </>
+                        )}
+                    </CardGroup>      
+                        
+                    </Col>
+                    <Col></Col>
             
-            <Row>
-                <Col></Col>
-                <Col xl={8}>
-                <CardGroup>
-                    {weatherData?.list.map((data, index) => 
-                        <> 
-                            <DailyForecast 
-                                dateTime={data.dt}
-                                highTemp={Math.round(data.temp.max)}
-                                lowTemp={Math.round(data.temp.min)}
-                                weatherGraphic={data.weather[0].icon}
-                                graphicAltText={data.weather[0].description}
-                                condition={data.weather[0].main}
-                                index={`forecastDay-${index}`}
-                            />
-                            <br></br>
-                        </>
-                    )}
-                </CardGroup>      
-                    
-                </Col>
-                <Col></Col>
-          
-            </Row>
+                </Row>
 
 
-        </Container>
+            </Container>
+        </>
     )
 }
 
