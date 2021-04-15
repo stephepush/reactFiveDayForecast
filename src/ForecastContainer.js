@@ -53,9 +53,11 @@ export default function ForecastContainer() {
          {weatherData?.list.map((data, index) => 
                <> 
                 <DailyForecast 
-                    highTemp={data[index].temp.max}
-                    lowTemp={74}
-                    key={`forecastDay-${index}`}
+                    highTemp={Math.round(data.temp.max)}
+                    lowTemp={Math.round(data.temp.min)}
+                    weatherGraphic={data.weather[0].icon}
+                    graphicAltText={data.weather[0].description}
+                    index={`forecastDay-${index}`}
                 />
                 <br></br>
                 </>
