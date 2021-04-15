@@ -19,16 +19,14 @@ export default function DailyForecast(props) {
                     {dayOfWeek}
                 </Card.Title>
             </Card.Body>
-            
-            <br></br>
-            High: {props.highTemp}
-            <br></br>
-            <img 
+            <Card.Img 
                 src={`http://openweathermap.org/img/wn/${props.weatherGraphic}@2x.png`}
-                alt={props.graphicAltText}/>
-            <br></br>
+                alt={props.graphicAltText}
+            />
+            <Card.Body>{props.condition}</Card.Body>
             
-            Low: {props.lowTemp}
+            <Card.Body>High: {props.highTemp}</Card.Body>
+            <Card.Body>Low: {props.lowTemp}</Card.Body>
         </Card>
     )
 }

@@ -50,19 +50,20 @@ export default function ForecastContainer() {
         <div>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
 
-         {weatherData?.list.map((data, index) => 
-               <> 
-                <DailyForecast 
-                    dateTime={data.dt}
-                    highTemp={Math.round(data.temp.max)}
-                    lowTemp={Math.round(data.temp.min)}
-                    weatherGraphic={data.weather[0].icon}
-                    graphicAltText={data.weather[0].description}
-                    index={`forecastDay-${index}`}
-                />
-                <br></br>
-                </>
-            )}
+            {weatherData?.list.map((data, index) => 
+                <> 
+                    <DailyForecast 
+                        dateTime={data.dt}
+                        highTemp={Math.round(data.temp.max)}
+                        lowTemp={Math.round(data.temp.min)}
+                        weatherGraphic={data.weather[0].icon}
+                        graphicAltText={data.weather[0].description}
+                        condition={data.main}
+                        index={`forecastDay-${index}`}
+                    />
+                    <br></br>
+                    </>
+                )}
         </div>
     )
 }
