@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DailyForecast from './DailyForecast'
-
+import CardGroup from 'react-bootstrap/CardGroup'
 
 export default function ForecastContainer() {
     const [lat, setLat] = useState(null)
@@ -49,8 +49,8 @@ export default function ForecastContainer() {
     return (
         <div>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
-
-            {weatherData?.list.map((data, index) => 
+            <CardGroup>
+                {weatherData?.list.map((data, index) => 
                 <> 
                     <DailyForecast 
                         dateTime={data.dt}
@@ -64,6 +64,8 @@ export default function ForecastContainer() {
                     <br></br>
                     </>
                 )}
+            </CardGroup>
+
         </div>
     )
 }

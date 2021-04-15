@@ -11,7 +11,7 @@ export default function DailyForecast(props) {
 
     return (
         <Card 
-            style={{ width: '18rem' }}
+            
             key={props.index}
         >
             <Card.Body>
