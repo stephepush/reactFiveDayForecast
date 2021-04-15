@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import NavBar from './NavBar'
+
 import DailyForecast from './DailyForecast'
 import { CardGroup, Container, Row, Col } from 'react-bootstrap'
 
