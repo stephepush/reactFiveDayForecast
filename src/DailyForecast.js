@@ -1,17 +1,25 @@
 import React from 'react'
-import DateTimeDisplay from './DateTimeDisplay';
+import Card from 'react-bootstrap/Card'
 
 export default function DailyForecast(props) {
 
-    let newDate = new Date(props.dateTime*1000)
-    let dateTimeFormat = new Intl.DateTimeFormat("en-US", {weekday: "long"}, {month: "long"}, {day: "numeric"})
+    let cardDate = new Date(props.dateTime*1000)
+    let dateTimeFormat = new Intl.DateTimeFormat("en-US", {weekday: "long", month: "long", day: "numeric"})
+
     
-    let dayOfWeek = dateTimeFormat.format(newDate)
+    let dayOfWeek = dateTimeFormat.format(cardDate)
 
     return (
-        <div key={props.index}>
-    
-            {dayOfWeek}
+        <Card 
+            style={{ width: '18rem' }}
+            key={props.index}
+        >
+            <Card.Body>
+                <Card.Title>
+                    {dayOfWeek}
+                </Card.Title>
+            </Card.Body>
+            
             <br></br>
             High: {props.highTemp}
             <br></br>
@@ -21,6 +29,6 @@ export default function DailyForecast(props) {
             <br></br>
             
             Low: {props.lowTemp}
-        </div>
+        </Card>
     )
 }
