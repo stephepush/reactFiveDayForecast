@@ -3,9 +3,11 @@ import DateTimeDisplay from './DateTimeDisplay';
 
 export default function DailyForecast(props) {
 
-    let date = new Date(props.dateTime * 1000)
-    let dayOfWeek = date.toLocaleString("en-US", {weekday: "long"})
+    let newDate = new Date(props.dateTime*1000)
+    let dateTimeFormat = new Intl.DateTimeFormat("en-US", {weekday: "long"}, {month: "long"}, {day: "numeric"})
     
+    let dayOfWeek = dateTimeFormat.format(newDate)
+
     return (
         <div key={props.index}>
     
