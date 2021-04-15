@@ -25,8 +25,8 @@ export default function DailyForecast(props) {
             />
             <Card.Body>{props.condition}</Card.Body>
             
-            <Card.Body>High: {props.highTemp}</Card.Body>
-            <Card.Body>Low: {props.lowTemp}</Card.Body>
+            <Card.Body>High: {props.highTemp} <br></br> Low: {props.lowTemp}</Card.Body>
+            <Card.Body></Card.Body>
         </Card>
     )
 }

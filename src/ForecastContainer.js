@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DailyForecast from './DailyForecast'
-import CardGroup from 'react-bootstrap/CardGroup'
+import { CardGroup, Container, Row, Col } from 'react-bootstrap'
 
 export default function ForecastContainer() {
     const [lat, setLat] = useState(null)
@@ -47,7 +47,7 @@ export default function ForecastContainer() {
     
      console.log(weatherData)
     return (
-        <div>
+        <Container>
             <h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1>
             <CardGroup>
                 {weatherData?.list.map((data, index) => 
@@ -58,7 +58,7 @@ export default function ForecastContainer() {
                         lowTemp={Math.round(data.temp.min)}
                         weatherGraphic={data.weather[0].icon}
                         graphicAltText={data.weather[0].description}
-                        condition={data.main}
+                        condition={data.weather[0].main}
                         index={`forecastDay-${index}`}
                     />
                     <br></br>
@@ -66,7 +66,7 @@ export default function ForecastContainer() {
                 )}
             </CardGroup>
 
-        </div>
+        </Container>
     )
 }
 
