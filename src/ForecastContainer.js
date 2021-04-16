@@ -32,12 +32,14 @@ export default function ForecastContainer() {
     //let weatherAPIStatic = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=40.71427&lon=-74.00597&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
 
 
-    let weatherAPI = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
 
     
     useEffect(() => {
+
+
         const fetchData = () => {
-            
+            let weatherAPI = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
+
             if (lat && lng) {
                 //console.log(forecastCall)
                 return fetch(weatherAPI)
@@ -47,7 +49,7 @@ export default function ForecastContainer() {
         }
         
         fetchData()
-     }, [weatherAPI, lat, lng]);
+     }, [lat, lng]);
     
      console.log(weatherData)
     return (
