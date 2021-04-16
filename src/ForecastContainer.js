@@ -29,31 +29,34 @@ export default function ForecastContainer() {
     useEffect(() => {
         getLocation()
     }, [])
+    //let weatherAPIStatic = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=40.71427&lon=-74.00597&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
+
 
     let weatherAPI = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
-        console.log(lat)
-        console.log(lng)
 
-    let weatherAPIStatic = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=40.71427&lon=-74.00597&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
-     useEffect(() => {
-
-
-        
-            //console.log(forecastCall)
-            return fetch(weatherAPIStatic)
+    
+    useEffect(() => {
+        const fetchData = () => {
+            
+            if (lat && lng) {
+                //console.log(forecastCall)
+                return fetch(weatherAPI)
                 .then((res) => res.json())
                 .then((response) => setWeatherData(response))
-          
-     }, [weatherAPIStatic]);
+            }
+        }
+        
+        fetchData()
+     }, [weatherAPI, lat, lng]);
     
      console.log(weatherData)
     return (
         <>
             <Container fluid>
                 <Row>
-                    <Col></Col>
-                    <Col><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1></Col>
-                    <Col></Col>
+                    <Col xl={2}></Col>
+                    <Col xl={6}><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1></Col>
+                    <Col xl={2}></Col>
                 </Row>
                 <Row>
                     <Col></Col>
@@ -68,7 +71,7 @@ export default function ForecastContainer() {
                                     weatherGraphic={data.weather[0].icon}
                                     graphicAltText={data.weather[0].description}
                                     condition={data.weather[0].main}
-                                    index={`forecastDay-${index}`}
+                                    unique={`${data.dt*.24}-${index}`}
                                 />
                                 <br></br>
                             </>

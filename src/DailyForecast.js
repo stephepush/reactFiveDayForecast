@@ -12,7 +12,7 @@ export default function DailyForecast(props) {
     return (
         <Card 
             
-            key={props.index}
+            key={props.unique}
         >
             <Card.Body>
                 <Card.Title>
