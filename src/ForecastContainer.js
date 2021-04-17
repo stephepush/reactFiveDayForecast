@@ -37,29 +37,37 @@ export default function ForecastContainer() {
     useEffect(() => {
 
 
-        const fetchData = () => {
+        const fetchData = async () => {
             let weatherAPI = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
 
             if (lat && lng) {
                 //console.log(forecastCall)
-                return fetch(weatherAPI)
+                await fetch(weatherAPI)
                 .then((res) => res.json())
-                .then((response) => setWeatherData(response))
+                .then((response) => {
+                    setWeatherData(response)
+                    console.log(response)
+                })
             }
         }
         
         fetchData()
      }, [lat, lng]);
     
-     console.log(weatherData)
+
     return (
         <>
             <Container fluid>
+                <br /><br />
                 <Row>
                     <Col xl={2}></Col>
-                    <Col xl={6}><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}</h1></Col>
+                    <Col xl={6}><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}:</h1></Col>
                     <Col xl={2}></Col>
                 </Row>
+                <br />
+                
+                <br />
+                <br />
                 <Row>
                     <Col></Col>
                     <Col xl={8}>
