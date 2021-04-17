@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import DailyForecast from './DailyForecast'
-import { CardGroup, Container, Row, Col } from 'react-bootstrap'
+import { CardGroup, Container, Row, Col, Spinner } from 'react-bootstrap'
 
 export default function ForecastContainer() {
     const [lat, setLat] = useState(null)
@@ -57,17 +57,27 @@ export default function ForecastContainer() {
 
     return (
         <>
+            
             <Container fluid>
                 <br /><br />
                 <Row>
                     <Col xl={2}></Col>
-                    <Col xl={6}><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}:</h1></Col>
+                    {(weatherData != null) ? 
+                    (<Col xl={6}><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}:</h1></Col> ) : (
+
+                        <Spinner xl={6} animation="border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </Spinner>
+                    )}
                     <Col xl={2}></Col>
                 </Row>
                 <br />
                 
                 <br />
                 <br />
+
+                
+        
                 <Row>
                     <Col></Col>
                     <Col xl={8}>
@@ -91,10 +101,9 @@ export default function ForecastContainer() {
                     </Col>
                     <Col></Col>
             
-                </Row>
-
-
-            </Container>
+                </Row> 
+            </Container> 
+                
         </>
     )
 }
