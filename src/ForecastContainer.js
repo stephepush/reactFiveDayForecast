@@ -55,7 +55,7 @@ export default function ForecastContainer() {
      }, [lat, lng, LAGOMORPHA]);
     
      console.log(status)
-
+     console.log(weatherData)
     return (
         <>
             
@@ -65,10 +65,14 @@ export default function ForecastContainer() {
                     <Col xl={2}></Col>
                     {(weatherData != null) ? 
                     (<Col xl={6}><h1>Five Day Forecast for {weatherData?.city.name}, {weatherData?.city.country}:</h1></Col> ) : (
+                        <div>
+                            <Spinner xl={6} animation="border" role="status">
+                                
+                                <span className="sr-only">Loading...</span>
+                            </Spinner>
+                            <p>{status}</p>
+                        </div>
 
-                        <Spinner xl={6} animation="border" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </Spinner>
                     )}
                     <Col xl={2}></Col>
                 </Row>
