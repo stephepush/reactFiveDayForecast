@@ -52,8 +52,9 @@ export default function ForecastContainer() {
         }
         
         fetchData()
-     }, [lat, lng]);
+     }, [lat, lng, LAGOMORPHA]);
     
+     console.log(status)
 
     return (
         <>
