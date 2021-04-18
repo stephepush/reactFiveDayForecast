@@ -15,10 +15,10 @@ export default function NavBar() {
                 />{' '}
                 Five Day Forecaster by Stephen Peters
             </Navbar.Brand>
-            <Form inline>
+{/*             <Form inline>
                 <FormControl type="text" placeholder="Enter Zip Code" className=" mr-sm-2" />
                 <Button type="submit">Submit</Button>
-            </Form>
+            </Form> */}
         </Navbar>
     )
 }
