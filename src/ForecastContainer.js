@@ -38,7 +38,7 @@ export default function ForecastContainer() {
 
 
         const fetchData = async () => {
-            let weatherAPI = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
+            let weatherAPI = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lng}&cnt=${5}&appid=${LAGOMORPHA}&units=imperial`
 
             if (lat && lng) {
                 //console.log(forecastCall)

@@ -20,7 +20,7 @@ export default function DailyForecast(props) {
                 </Card.Title>
             </Card.Body>
             <Card.Img 
-                src={`http://openweathermap.org/img/wn/${props.weatherGraphic}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${props.weatherGraphic}@2x.png`}
                 alt={props.graphicAltText}
                 style={{width:'110px'}}
             />
