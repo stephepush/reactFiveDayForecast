@@ -6,7 +6,7 @@ export default function HelmetContainer(props) {
         <div>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>{props.location === null ? `Five Day Forecast` : `Five Day Forecast in ${props.location}`}</title>
+                <title>{props.location ===  undefined ? `Five Day Forecast` : `Five Day Forecast in ${props.location}`}</title>
 
             </Helmet>
         </div>
