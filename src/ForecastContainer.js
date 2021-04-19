@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import DailyForecast from './DailyForecast'
 import { CardGroup, Container, Row, Col, Spinner } from 'react-bootstrap'
+import HelmetContainer from './HelmetContainer'
 
 export default function ForecastContainer() {
     const [lat, setLat] = useState(null)
@@ -106,7 +107,8 @@ export default function ForecastContainer() {
                     </Col>
                     <Col></Col>
             
-                </Row> 
+                </Row>
+                <HelmetContainer location={weatherData?.city.name}/> 
             </Container> 
                 
         </>
